@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:10:14
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-05 08:25:53
+ * @LastEditTime: 2025-03-05 08:45:31
  * @Description: 
  */
 import React, { useCallback } from "react";
@@ -14,6 +14,8 @@ import {
   Background,
   useNodesState,
   useEdgesState,
+  Panel,
+  Position,
 } from '@xyflow/react';
 
 import {
@@ -26,6 +28,7 @@ import ResizerNode from './components/ResizerNode';
 import CircleNode from './components/CircleNode';
 import TextNode from './components/TextNode';
 import ButtonEdge from './components/ButtonEdge';
+import SideDialog from './components/SideDialog';
 
 import '@xyflow/react/dist/style.css';
 // import './overview.less';
@@ -69,6 +72,7 @@ const OverviewFlow = () => {
       >
         <MiniMap zoomable pannable nodeClassName={nodeClassName} />
         <Controls />
+        <SideDialog/>
         <Background />
       </ReactFlow>
     </div>
