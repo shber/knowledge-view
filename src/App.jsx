@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:10:14
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-05 08:45:31
+ * @LastEditTime: 2025-03-05 18:13:45
  * @Description: 
  */
 import React, { useCallback } from "react";
@@ -28,10 +28,10 @@ import ResizerNode from './components/ResizerNode';
 import CircleNode from './components/CircleNode';
 import TextNode from './components/TextNode';
 import ButtonEdge from './components/ButtonEdge';
-import SideDialog from './components/SideDialog';
+import SideOperate from './components/SideOperate/index';
+import SideMenu from './components/SideMenu';
 
 import '@xyflow/react/dist/style.css';
-// import './overview.less';
 
 const nodeTypes = {
   annotation: AnnotationNode,
@@ -57,25 +57,31 @@ const OverviewFlow = () => {
   );
 
   return (
-    <div style={{ height: '100vh'}}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        fitView
-        attributionPosition="top-right"
-        nodeTypes={nodeTypes}
-        edgeTypes={edgeTypes}
-        className="overview"
-      >
-        <MiniMap zoomable pannable nodeClassName={nodeClassName} />
-        <Controls />
-        <SideDialog/>
-        <Background />
-      </ReactFlow>
-    </div>
+    <section className="content">
+      <aside>
+          <SideMenu/>
+      </aside>
+      <section className="react_flow">
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onConnect={onConnect}
+          fitView
+          attributionPosition="top-right"
+          nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
+          className="overview"
+        >
+          <MiniMap zoomable pannable nodeClassName={nodeClassName} />
+          <Controls />
+          <SideOperate/>
+          <Background color="#999" variant="dots" />
+        </ReactFlow>
+      </section>
+
+    </section>
   )
 };
 
