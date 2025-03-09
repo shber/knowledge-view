@@ -2,30 +2,30 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:20:37
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-05 08:23:11
+ * @LastEditTime: 2025-03-09 21:41:51
  * @Description: 
  */
 import React from 'react';
 import { Edge, MarkerType, Node } from '@xyflow/react';
 
 export const nodes = [
-  {
-    id: 'annotation-1',
-    type: 'annotation',
-    draggable: false,
-    selectable: false,
-    data: {
-      level: 1,
-      label:
-        '内置节点和边类型。可拖拽、可删除、可连线',
-      arrowStyle: {
-        right: 0,
-        bottom: 0,
-        transform: 'translate(-30px,10px) rotate(-80deg)',
-      },
-    },
-    position: { x: -80, y: -30 },
-  },
+  // {
+  //   id: 'annotation-1',
+  //   type: 'annotation',
+  //   draggable: false,
+  //   selectable: false,
+  //   data: {
+  //     level: 1,
+  //     label:
+  //       '内置节点和边类型。可拖拽、可删除、可连线',
+  //     arrowStyle: {
+  //       right: 0,
+  //       bottom: 0,
+  //       transform: 'translate(-30px,10px) rotate(-80deg)',
+  //     },
+  //   },
+  //   position: { x: -80, y: -30 },
+  // },
   {
     id: '1-1',
     type: 'input',
@@ -49,22 +49,6 @@ export const nodes = [
       label: 'Output Node',
     },
     position: { x: 300, y: 100 },
-  },
-  {
-    id: 'annotation-2',
-    type: 'annotation',
-    draggable: false,
-    selectable: false,
-    data: {
-      level: 2,
-      label: 'Sub flows, toolbars 和 resizable nodes!',
-      arrowStyle: {
-        left: 0,
-        bottom: 0,
-        transform: 'translate(5px, 25px) scale(1, -1) rotate(100deg)',
-      },
-    },
-    position: { x: 220, y: 200 },
   },
   {
     id: '2-1',
@@ -110,22 +94,6 @@ export const nodes = [
     },
     parentId: '2-1',
     extent: 'parent',
-  },
-  {
-    id: 'annotation-3',
-    type: 'annotation',
-    draggable: false,
-    selectable: false,
-    data: {
-      level: 3,
-      label: <>节点和边可以是任何东西，而且完全可以自定义！</>,
-      arrowStyle: {
-        right: 0,
-        bottom: 0,
-        transform: 'translate(-35px, 20px) rotate(-80deg)',
-      },
-    },
-    position: { x: -40, y: 570 },
   },
   {
     id: '3-2',

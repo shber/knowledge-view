@@ -2,10 +2,10 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:10:14
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-05 18:13:45
+ * @LastEditTime: 2025-03-09 21:47:36
  * @Description: 
  */
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
   ReactFlow,
   addEdge,
@@ -50,16 +50,52 @@ const nodeClassName = (node) => node.type;
 const OverviewFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [selectedNode, setSelectedNode] = useState(null);
+  const [showSideOperate, setShowSideOperate] = useState(false);
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [],
   );
 
+  const createNode = useCallback(({label,type}) => {
+    const newNode = {
+      id: `node-${nodes.length + 1}`,
+      type,
+      position: { x: Math.random() * 500, y: Math.random() * 500 },
+      data: { label: `${label} ${nodes.length + 1}` },
+    };
+
+    setNodes((nds) => [...nds, newNode]);
+  }, [nodes.length, setNodes]);
+
+  const onNodeClick = useCallback((event, node) => {
+    setSelectedNode(node);
+    setShowSideOperate(true);
+  }, []);
+
+  const onCloseSideOperate = useCallback(() => {
+    setShowSideOperate(false);
+    setSelectedNode(null);
+  }, []);
+
+  const onDeleteNode = useCallback((nodeId) => {
+    setNodes((nds) => nds.filter((node) => node.id !== nodeId));
+    setEdges((eds) => eds.filter((edge) => edge.source !== nodeId && edge.target !== nodeId));
+    onCloseSideOperate();
+  }, []);
+
+  const onKeyDown = useCallback((event) => {
+    // 阻止默认的删除行为
+    if (event.key === 'Backspace' || event.key === 'Delete') {
+      event.preventDefault();
+    }
+  }, []);
+
   return (
     <section className="content">
       <aside>
-          <SideMenu/>
+          <SideMenu onCreateNode={createNode}/>
       </aside>
       <section className="react_flow">
         <ReactFlow
@@ -68,6 +104,9 @@ const OverviewFlow = () => {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
+          onNodeClick={onNodeClick}
+          onKeyDown={onKeyDown}
+          deleteKeyCode={null}
           fitView
           attributionPosition="top-right"
           nodeTypes={nodeTypes}
@@ -76,7 +115,13 @@ const OverviewFlow = () => {
         >
           <MiniMap zoomable pannable nodeClassName={nodeClassName} />
           <Controls />
-          <SideOperate/>
+          {showSideOperate && (
+            <SideOperate 
+              node={selectedNode}
+              onClose={onCloseSideOperate}
+              onDelete={onDeleteNode}
+            />
+          )}
           <Background color="#999" variant="dots" />
         </ReactFlow>
       </section>

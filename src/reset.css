@@ -1,9 +1,9 @@
 /* Reset CSS */
-*, *::before, *::after {
+/* *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 /* Document */
 html {
@@ -50,7 +50,6 @@ img {
 }
 
 /* Forms */
-button,
 input,
 optgroup,
 select,
