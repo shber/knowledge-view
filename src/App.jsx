@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:10:14
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-09 21:47:36
+ * @LastEditTime: 2025-03-10 08:08:00
  * @Description: 
  */
 import React, { useCallback, useState } from "react";
@@ -54,7 +54,14 @@ const OverviewFlow = () => {
   const [showSideOperate, setShowSideOperate] = useState(false);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
+    (params) => {
+      const newEdge = {
+        ...params,
+        type: 'button',
+        style: { strokeWidth: 2 },
+      };
+      setEdges((eds) => addEdge(newEdge, eds));
+    },
     [],
   );
 

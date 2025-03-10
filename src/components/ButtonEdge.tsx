@@ -6,6 +6,13 @@ import {
   useReactFlow,
 } from '@xyflow/react';
 
+import {
+  CloseOutlined,
+  DeleteOutlined
+} from '@ant-design/icons';
+
+import { Button, Divider, Flex, Radio } from 'antd';
+
 export default function ButtonEdge({
   id,
   sourceX,
@@ -46,9 +53,8 @@ export default function ButtonEdge({
           }}
           className="nodrag nopan"
         >
-          <button className="edgebutton" onClick={onEdgeClick}>
-            ×
-          </button>
+          <Button danger className="edgebutton" shape="round" onClick={onEdgeClick} icon={<DeleteOutlined />}>
+          </Button>
         </div>
       </EdgeLabelRenderer>
     </>

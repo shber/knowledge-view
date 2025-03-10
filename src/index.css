@@ -40,7 +40,7 @@
 }
 
 .edgebutton {
-  width: 20px;
+  width: 20px !important;
   height: 20px;
   background: #eee;
   border: 1px solid #fff;

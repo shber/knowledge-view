@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:20:37
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-09 21:41:51
+ * @LastEditTime: 2025-03-10 08:07:45
  * @Description: 
  */
 import React from 'react';
@@ -115,7 +115,8 @@ export const edges = [
     source: '1-1',
     target: '1-2',
     label: 'edge',
-    type: 'smoothstep',
+    type: 'button',
+    style: { strokeWidth: 2 },
   },
   {
     id: 'e1-3',
@@ -123,12 +124,15 @@ export const edges = [
     target: '1-3',
     animated: true,
     label: 'animated edge',
+    type: 'button',
+    style: { strokeWidth: 2 },
   },
   {
     id: 'e2-2',
     source: '1-2',
     target: '2-2',
-    type: 'smoothstep',
+    type: 'button',
+    style: { strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -137,7 +141,8 @@ export const edges = [
     id: 'e2-3',
     source: '2-2',
     target: '2-3',
-    type: 'smoothstep',
+    type: 'button',
+    style: { strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
     },
@@ -157,6 +162,7 @@ export const edges = [
     sourceHandle: 'b',
     target: '3-1',
     type: 'button',
+    animated: true,
     style: { strokeWidth: 2 },
   },
 ] as Edge[];
