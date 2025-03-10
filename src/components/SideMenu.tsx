@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:35:39
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-09 21:27:49
+ * @LastEditTime: 2025-03-10 15:29:44
  * @Description: 
  */
 import React from 'react';
@@ -22,7 +22,7 @@ export default ({ onCreateNode }) => {
   return (
     <div className='side_menu_body shadow-sm'>
       <div className="p-4">
-        <h3 className="text-lg font-medium mb-4">添加节点</h3>
+        <h3 className="text-lg font-medium mb-4 text-center">添加节点</h3>
         <Space direction="vertical" style={{ width: '100%' }}>
           {nodeTypes.map((node) => (
             <Button

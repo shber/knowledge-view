@@ -99,38 +99,40 @@
 .react-flow__node-resizer .react-flow__handle,
 .react-flow__node-circle .react-flow__handle,
 .react-flow__node-textinput .react-flow__handle {
-  background: #bbb;
+  background: greenyellow;
   border-radius: 0;
   width: 8px;
-  height: 4px;
+  height: 8px;
   border: none;
   min-width: 2px;
   min-height: 2px;
+  border-radius: 50%;
+  border: 1px solid #333;
 }
 
 .react-flow__node-resizer .react-flow__handle-bottom,
 .react-flow__node-circle .react-flow__handle-bottom,
 .react-flow__node-textinput .react-flow__handle-bottom {
-  bottom: -5px;
+  bottom: -4px;
   transform: none;
-  border-radius: 0 0 2px 2px;
+  /* border-radius: 0 0 2px 2px; */
 }
 
 .react-flow__node-resizer .react-flow__handle-top,
 .react-flow__node-circle .react-flow__handle-top,
 .react-flow__node-textinput .react-flow__handle-top {
-  top: -5px;
+  top: -4px;
   transform: none;
-  border-radius: 2px 2px 0 0;
+  /* border-radius: 2px 2px 0 0; */
 }
 
 .react-flow__node-resizer .react-flow__handle-left,
 .react-flow__node-circle .react-flow__handle-left,
 .react-flow__node-textinput .react-flow__handle-left {
-  height: 8px;
-  width: 4px;
-  left: -5px;
-  border-radius: 2px 0 0 2px;
+  /* height: 8px;
+  width: 4px; */
+  /* left: -5px; */
+  /* border-radius: 2px 0 0 2px; */
 }
 
 .react-flow__node-annotation {
@@ -252,4 +254,157 @@
 
 .react-flow__minimap .annotation {
   display: none;
+}
+
+/* ResizerNode 样式 */
+.resizer-node {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.resizer-node .node-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resizer-node .node-header {
+  font-weight: 600;
+  color: #1a192b;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+.resizer-node .node-body {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.resizer-node .node-handles {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+}
+
+.resizer-node .handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: #ffffff !important;
+  border: 2px solid #ff6600 !important;
+  border-radius: 50% !important;
+  transition: all 0.2s ease;
+}
+
+.resizer-node .handle:hover {
+  width: 12px !important;
+  height: 12px !important;
+  border-width: 3px !important;
+  box-shadow: 0 0 6px rgba(255, 102, 0, 0.4);
+}
+
+.resizer-node .handle-left {
+  left: -5px !important;
+}
+
+.resizer-node .handle-right {
+  right: -5px !important;
+}
+
+.resizer-node .handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  background: #ff6600;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.resizer-node .handle:hover::after {
+  opacity: 1;
+}
+
+.resizer-node:hover {
+  border-color: #1a192b;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 右键菜单样式 */
+.context-menu {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 4px 0;
+  min-width: 160px;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease;
+}
+
+.context-menu-item {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #1a192b;
+  font-size: 14px;
+}
+
+.context-menu-item:hover {
+  background-color: #f3f4f6;
+}
+
+.context-menu-item.delete {
+  color: #ef4444;
+}
+
+.context-menu-item.delete:hover {
+  background-color: #fef2f2;
+}
+
+.context-menu-item .icon {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 导出面板样式 */
+.export-panel {
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.export-panel button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.export-panel button:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }

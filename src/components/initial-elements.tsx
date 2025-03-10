@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:20:37
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-10 08:07:45
+ * @LastEditTime: 2025-03-10 17:02:40
  * @Description: 
  */
 import React from 'react';
@@ -149,20 +149,24 @@ export const edges = [
   },
   {
     id: 'e3-3',
-    source: '2-3',
-    sourceHandle: 'a',
-    target: '3-2',
+    source: '3-2',
+    target: '3-1',
     type: 'button',
     animated: true,
     style: { stroke: 'rgb(158, 118, 255)', strokeWidth: 2 },
   },
   {
+    // 边的唯一标识符
     id: 'e3-4',
-    source: '2-3',
-    sourceHandle: 'b',
-    target: '3-1',
+    // 边的起始节点ID
+    source: '1-2', 
+    // 边的目标节点ID
+    target: '3-2',
+    // 边的类型,这里使用自定义的button类型
     type: 'button',
+    // 是否显示动画效果
     animated: true,
-    style: { strokeWidth: 2 },
+    // 边的样式
+    style: { strokeWidth: 2 }, // 设置边的宽度为2
   },
 ] as Edge[];

@@ -2,7 +2,7 @@
  * @Author: Shber
  * @Date: 2025-03-05 08:21:39
  * @LastEditors: Shber
- * @LastEditTime: 2025-03-05 08:22:44
+ * @LastEditTime: 2025-03-10 15:46:00
  * @Description: 
  */
 import React, { memo, useState } from 'react';
@@ -21,8 +21,8 @@ function ToolbarNode({ data }) {
       <div style={{ padding: '10px 20px' }}>
         <div>{emoji}</div>
       </div>
-      <Handle type="target" position={Position.Left} />
-      <Handle type="source" position={Position.Right} />
+      <Handle type="target" className="handle" position={Position.Left} />
+      <Handle type="source" className="handle" position={Position.Right} />
 
       <div
         style={{
